@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Comparing</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Ride Comparing</h1>
+
+    <div class="filter">
+        <input id="start" type="text" placeholder="Enter start location" oninput="fetchStartSuggestions()" />
+        <input id="end" type="text" placeholder="Enter drop-off location" oninput="fetchSuggestions()" />
+        <button onclick="fetchRides()">Compare Rides</button>
+        <div id="start-suggestions" class="suggestions" style="display:none;"></div>
+        <div id="suggestions" class="suggestions" style="display:none;"></div>
+        <div class="price-estimates" id="price-estimates">
+            <div>Uber: <span id="uber-price"></span></div>
+            <div>Lyft: <span id="lyft-price"></span></div>
+            <div>Bolt: <span id="bolt-price"></span></div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
