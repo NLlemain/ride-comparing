@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ride Comparing</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <title>Ride Comparing Demo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Ride Comparing</h1>
+    <h1>Ride Comparing Demo</h1>
+    <p class="subtitle">Compare ride prices from Uber, Lyft, and Bolt (Demo with simulated data)</p>
 
     <div class="filter">
         <input id="start" type="text" placeholder="Enter start location" oninput="fetchStartSuggestions()" />
@@ -18,17 +17,39 @@
         <button onclick="fetchRides()">Compare Rides</button>
         <div id="start-suggestions" class="suggestions" style="display:none;"></div>
         <div id="suggestions" class="suggestions" style="display:none;"></div>
+        
+        <div class="route-info" id="route-info" style="display:none;">
+            <h3>Route Information</h3>
+            <div id="distance-duration"></div>
+        </div>
+        
         <div class="price-estimates" id="price-estimates">
-            <div>Uber: <span id="uber-price"></span></div>
-            <div>Lyft: <span id="lyft-price"></span></div>
-            <div>Bolt: <span id="bolt-price"></span></div>
+            <div class="price-item">
+                <strong>Uber:</strong> 
+                <span id="uber-price" class="price">-</span>
+            </div>
+            <div class="price-item">
+                <strong>Lyft:</strong> 
+                <span id="lyft-price" class="price">-</span>
+            </div>
+            <div class="price-item">
+                <strong>Bolt:</strong> 
+                <span id="bolt-price" class="price">-</span>
+            </div>
         </div>
     </div>
 
-    <div id="map"></div>
+    <div id="map-container">
+        <div id="map">
+            <div class="map-placeholder">
+                <h3>Route Map</h3>
+                <div id="route-display">
+                    <p>Enter start and end locations to see route visualization</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script src="script.js"></script>
 
 </body>
